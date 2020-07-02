@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tarjeta de Felicitación</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Hind:wght@300&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    
+    <script>
+        function cambiartamanoejemplo(){
+            var tam=document.getElementById("tamanotxt").value;
+            document.getElementById("ejemplotexto").style.fontSize=tam+"em";
+        }
+        
+
+        function generartarjeta(){
+            
+            document.getElementById("tarjeta").style.display='block';
+             document.getElementById("body").style.backgroundImage='none';
+
+            //revisamos el radio de la imagen que fue elegido
+            var fondo;
+            if(document.getElementById("tipoImg1").checked)
+                fondo=document.getElementById("tipoImg1").value;
+            else if(document.getElementById("tipoImg2").checked)
+                fondo=document.getElementById("tipoImg2").value;
+           else fondo=document.getElementById("tipoImg3").value;
+            
+
+            //agregamos el fondo a la tarjeta
+            document.getElementById("tarjeta").style.backgroundImage="url('"+fondo+"')";
+            document.getElementById("tarjeta").style.backgroundRepeat="no-repeat";
+            document.getElementById("tarjeta").style.backgroundSize="cover";
+            document.getElementById("tarjeta").style.backgroundPosition="center";
+
+
+            
+            //insertar Titulo
+            var titu=document.getElementById("titulotxt").value;
+            document.getElementById("titulo").innerHTML=titu;
+
+            //insertar nombre
+            var name=document.getElementById("nombreID").value;
+            document.getElementById("nombre").innerHTML=name;
+
+            //insertar subtitulo
+            var sub=document.getElementById("subtituloID").value;
+            document.getElementById("subtitulo").innerHTML=sub;
+
+
+            //insertar descripcion
+            var desc=document.getElementById("descripciontxt").value;
+            document.getElementById("descripcion").innerHTML=desc;
+
+            //insertar remitente
+            var rmtt=document.getElementById("rmt").value;
+            document.getElementById("remitente").innerHTML=rmtt;
+            
+
+
+            //color de titulo
+             var ct=document.getElementById("colortxt").value;
+            document.getElementById("titulo").style.color=ct;
+
+             //color de texto
+             var ctxt=document.getElementById("colortexto").value;
+            document.getElementById("nombre").style.color=ctxt;
+
+            var ctxt=document.getElementById("colortexto").value;
+            document.getElementById("subtitulo").style.color=ctxt;
+
+            var ctxt=document.getElementById("colortexto").value;
+            document.getElementById("descripcion").style.color=ctxt;
+            
+            var ctxt=document.getElementById("colortexto").value;
+            document.getElementById("rmt").style.color=ctxt;
+
+            //tamano de titulo
+             var tam=document.getElementById("tamanotxt").value;
+            document.getElementById("titulo").style.fontSize=tam+"em";
+            
+
+            //validar cual es la tipografia seleccionada
+                var tipo;
+            if(document.getElementById("tipotxt1").checked)
+                tipo=document.getElementById("tipotxt1").value;
+            else if(document.getElementById("tipotxt2").ckecked)
+                tipo=document.getElementById("tipotxt2").value;
+           else tipo=document.getElementById("tipotxt3").value;
+            //asignar la tipografia
+            document.getElementById("titulo").style.fontFamily=tipo;
+            document.getElementById("nombre").style.fontFamily=tipo;
+            document.getElementById("subtitulo").style.fontFamily=tipo;
+            document.getElementById("descripcion").style.fontFamily=tipo;
+            document.getElementById("remitente").style.fontFamily=tipo;
+
+
+            //color de la pagina
+
+            var bgcolor= document.getElementById("colorpagina").value;
+            document.getElementById("body").style.backgroundColor=bgcolor;
+            
+            //ocultar zona de configuracion
+             document.getElementById("contenido").style.display='none';
+
+              //revisamos el radio del sonido
+            var sonido;
+            if(document.getElementById("SanValentin").checked)
+                sonido=document.getElementById("SanValentin").value;
+            else if(document.getElementById("Cumpleanos").checked)
+                sonido=document.getElementById("Cumpleanos").value;
+           else sonido=document.getElementById("Motivacion").value;
+            
+
+            //agregamos el sonido a la tarjeta
+            document.getElementById("musica").src=sonido;
+            
+                
+        }
+        
+    </script>
+	
+</head>
+<body id="body">
+
+    <article id="contenido">
+        <h1>Creando una tarjeta</h1>
+        <br><br>
+
+        <h2>Elige un tema</h2>
+        <br>
+            <input type="radio" name="tema" class="tema" id="SanValentin" checked value="media/sv_sound.mp3">
+            <label for="sanValentin">San Valentín</label> 
+            <input type="radio" name="tema" class="tema" id="Cumpleanos" value="media/cumple.mp3">
+            <label for="cumpleanos">Feliz Cumpleaños</label>
+            <input type="radio" name="tema" class="tema" id="Motivacion" value="media/notivation.mp3">
+            <label for="motivacion">Motivación</label>
+
+            <br><br>
+            <hr>
+            <br>
+
+        <h2>Elige una imagen</h2> <!--LISTO-->
+        <br>
+                <input type="radio" name="tipoImg" id="tipoImg1" checked value="img/sv2.jpg">
+                <img src="img/sv2.jpg" height="150" width="200">
+
+                <input type="radio" name="tipoImg" id="tipoImg2" value="img/ca.jpg">
+                <img src="img/ca.jpg" height="150" width="200">
+
+                <input type="radio" name="tipoImg" id="tipoImg3" value="img/m.jpg">
+                <img src="img/m.jpg" height="150" width="200">
+
+        <br><br>
+        <hr>
+        <br>
+
+        <h2>¿A quién va dirigido? (Nombre)</h2> <!--LISTO-->
+        <br>
+                <input type="text" id="nombreID">
+        <br><br>
+
+        <h2>Agrega un titulo</h2> <!--LISTO-->
+        <br>
+                <input type="text" id="titulotxt">
+        <br><br>
+
+        <h2>Agrega un subtitulo</h2> <!--LISTO-->
+        <br>
+                <input type="text" id="subtituloID">
+        <br><br>
+
+
+        <h2>Escribe el mensaje</h2> <!--LISTO-->
+        <br>
+                <textarea id="descripciontxt" cols="60" rows="5"></textarea>
+        <br><br>
+        <h2>Nombre del remitente</h2> <!--LISTO-->
+        <br>
+                <input type="text" id="rmt">
+        <br><br>
+        <hr>
+        <br>
+        <h2>Formato de texto</h2>
+        <br>
+                <label for="colortxt">Color del Titulo:</label>
+                <input type="color" id="colortxt"><br>
+                <br>
+                <label for="colortxt">Color del Texto:</label>
+                <input type="color" id="colortexto"><br>
+                <br>
+                <label for="colortxt">Tamaño de Titulo:</label>
+                <input type="range" id="tamanotxt" min="1" max="5" onchange="cambiartamanoejemplo()">
+                <label for="colortxt" id="ejemplotexto">Ejemplo</label><br>
+                <br>
+                <label>Tipografia:</label><br>
+                <input type="radio" name="tipotxt" id="tipotxt1" checked value="Bangers">
+                <label id="tipo1">Bangers</label>
+                <input type="radio" name="tipotxt" id="tipotxt2" checked value="Hind">
+                <label id="tipo2">Hind</label>
+                <input type="radio" name="tipotxt" id="tipotxt3" checked value="Lobster">
+                <label id="tipo3">Lobster</label>
+                <br>
+                <label for="colorpagina">Color de la pagina:</label>
+                <input type="color" id="colorpagina"><br>
+                <br><br>
+                <input type="button" name="Generar" value="Generar" onclick="generartarjeta();">
+                <br><br>
+
+
+
+    </article>
+    
+    <article id="tarjeta">
+        <h1 id="titulo"></h1>
+        <h2 id="nombre"></h2>
+        <h2 id="subtitulo"></h2>
+        <h2 id="descripcion"></h2>
+        <h2 id="remitente"></h2>
+        <audio id="musica" autoplay="autoplay"  src="media/cumple.mp3" ></audio>
+    </article>
+
+
+	
+</body>
+</html>
